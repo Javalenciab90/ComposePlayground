@@ -34,6 +34,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     ComposePlaygroundTheme {
-        Greeting("Android :)")
+        Greeting("Android xD")
     }
 }

@@ -11,6 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composeplayground.ui.Greeting
+import com.example.composeplayground.ui.MyBox
+import com.example.composeplayground.ui.MyColumn
+import com.example.composeplayground.ui.MyComplexLayout
+import com.example.composeplayground.ui.MyRow
 import com.example.composeplayground.ui.theme.ComposePlaygroundTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,7 +27,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    MyComplexLayout()
                 }
             }
         }
@@ -34,6 +38,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     ComposePlaygroundTheme {
-        Greeting("Android xD")
+        MyComplexLayout()
     }
 }

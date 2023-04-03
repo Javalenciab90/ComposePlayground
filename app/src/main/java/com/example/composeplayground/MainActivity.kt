@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ButtonsPreview() {
     ComposePlaygroundTheme {
-       MyButtonExamples()
+       MyImageAdvance()
     }
 }
 

@@ -30,12 +30,21 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             //TextFieldsPreview()
-            ButtonsPreview()
+            //ButtonsPreview()
+            ProgressBarPreview()
         }
     }
 }
 
 @Preview(showBackground = true)
+@Composable
+fun ProgressBarPreview() {
+    ComposePlaygroundTheme {
+        MyProgressBarAdvance()
+    }
+}
+
+//@Preview(showBackground = true)
 @Composable
 fun ButtonsPreview() {
     ComposePlaygroundTheme {

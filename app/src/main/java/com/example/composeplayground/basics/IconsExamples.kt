@@ -1,4 +1,4 @@
-package com.example.composeplayground
+package com.example.composeplayground.basics
 
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons

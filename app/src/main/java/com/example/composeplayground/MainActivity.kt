@@ -1,28 +1,23 @@
 package com.example.composeplayground
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.internal.enableLiveLiterals
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import com.example.composeplayground.basics.CheckBoxListCompleted
+import com.example.composeplayground.basics.CheckInfo
+import com.example.composeplayground.basics.MyCheckBoxWithText
+import com.example.composeplayground.basics.MyImageAdvance
+import com.example.composeplayground.basics.MyProgressBarAdvance
+import com.example.composeplayground.basics.MyTextField
+import com.example.composeplayground.basics.getOptions
 import com.example.composeplayground.ui.theme.ComposePlaygroundTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,12 +26,38 @@ class MainActivity : ComponentActivity() {
         setContent {
             //TextFieldsPreview()
             //ButtonsPreview()
-            ProgressBarPreview()
+            //CheckBoxListPreview()
+            CheckBoxListCompletePreview()
         }
     }
 }
 
 @Preview(showBackground = true)
+@Composable
+fun CheckBoxListCompletePreview() {
+    val options = getOptions(titles = listOf("Aris", "Example", "Pikachu", "Taurus"))
+    Column {
+        options.forEach {
+            CheckBoxListCompleted(checkInfo = it)
+        }
+    }
+}
+
+//@Preview(showBackground = true)
+@Composable
+fun CheckBoxListPreview() {
+    ComposePlaygroundTheme {
+        var status by rememberSaveable { mutableStateOf(false) }
+        val checkInfo = CheckInfo(
+            title = "Ejemplo 1",
+            isChecked = status,
+            onChecked = { newStatus -> status = newStatus }
+        )
+        MyCheckBoxWithText()
+    }
+}
+
+//@Preview(showBackground = true)
 @Composable
 fun ProgressBarPreview() {
     ComposePlaygroundTheme {
@@ -66,4 +87,3 @@ fun TextFieldsPreview() {
         MyTextField(myText) { myText = it }
     }
 }
-

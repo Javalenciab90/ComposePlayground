@@ -12,7 +12,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
@@ -51,13 +53,19 @@ fun getOptions(titles: List<String>) : List<CheckInfo> {
 @Composable
 fun CheckBoxListCompleted(checkInfo: CheckInfo) {
     ComposePlaygroundTheme {
-        Row(Modifier.fillMaxWidth()) {
+        Row(
+            Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Checkbox(
                 checked = checkInfo.isChecked,
                 onCheckedChange = { checkInfo.onChecked(!checkInfo.isChecked) }
             )
             Spacer(modifier = Modifier.width(8.dp))
-            Text(text = checkInfo.title)
+            Text(
+                modifier = Modifier.fillMaxWidth(),
+                text = checkInfo.title
+            )
         }
     }
 }

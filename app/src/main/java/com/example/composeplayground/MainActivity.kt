@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.DropdownMenu
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -37,11 +38,19 @@ class MainActivity : ComponentActivity() {
             //CheckBoxListCompletePreview()
             //RadioButtonPreview()
             //CardPreview()
-            BadgeBoxPreview()
+            // BadgeBoxPreview()
+            DropDownMenuPreview()
         }
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun DropDownMenuPreview() {
+    MyDropDownMenu()
+}
+
+//@Preview(showBackground = true)
 @Composable
 fun BadgeBoxPreview() {
     MyBadgeBox()

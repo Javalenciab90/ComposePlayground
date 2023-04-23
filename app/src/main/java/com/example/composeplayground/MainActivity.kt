@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composeplayground.basics.CheckBoxListCompleted
 import com.example.composeplayground.basics.CheckInfo
+import com.example.composeplayground.basics.MyCard
 import com.example.composeplayground.basics.MyCheckBoxWithText
 import com.example.composeplayground.basics.MyImageAdvance
 import com.example.composeplayground.basics.MyProgressBarAdvance
@@ -33,12 +34,19 @@ class MainActivity : ComponentActivity() {
             //ButtonsPreview()
             //CheckBoxListPreview()
             //CheckBoxListCompletePreview()
-            RadioButtonPreview()
+            //RadioButtonPreview()
+            CardPreview()
         }
     }
 }
 
 @Preview(showBackground = true)
+@Composable
+fun CardPreview() {
+    MyCard()
+}
+
+//@Preview(showBackground = true)
 @Composable
 fun RadioButtonPreview() {
     //MyRadioButton()

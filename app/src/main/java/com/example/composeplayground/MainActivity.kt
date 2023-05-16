@@ -1,23 +1,30 @@
 package com.example.composeplayground
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.composeplayground.basics.AdvanceSlider
-import com.example.composeplayground.basics.BasicSlider
 import com.example.composeplayground.basics.CheckBoxListCompleted
 import com.example.composeplayground.basics.CheckInfo
 import com.example.composeplayground.basics.MyBadgeBox
 import com.example.composeplayground.basics.MyCard
 import com.example.composeplayground.basics.MyCheckBoxWithText
+import com.example.composeplayground.basics.MyAlertDialog
 import com.example.composeplayground.basics.MyDropDownMenu
 import com.example.composeplayground.basics.MyImageAdvance
 import com.example.composeplayground.basics.MyProgressBarAdvance
@@ -39,12 +46,33 @@ class MainActivity : ComponentActivity() {
             //CardPreview()
             // BadgeBoxPreview()
             //DropDownMenuPreview()
-            SliderPreview()
+            //SliderPreview()
+            //AlertDialogsPreview()
         }
     }
 }
 
 @Preview(showBackground = true)
+@Composable
+fun AlertDialogsPreview() {
+    val context = LocalContext.current
+    var show by remember { mutableStateOf(false) }
+    Box(
+        Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.Center,
+    ) {
+        Button(onClick = { show = true }) {
+            Text(text = "Show Toast message")
+        }
+    }
+    MyAlertDialog(
+        show = show,
+        onDismiss = { show = false },
+        onConfirm = { Toast.makeText(context, "Confirmation Success", Toast.LENGTH_SHORT).show() }
+    )
+}
+
+//@Preview(showBackground = true)
 @Composable
 fun SliderPreview() {
     //BasicSlider()

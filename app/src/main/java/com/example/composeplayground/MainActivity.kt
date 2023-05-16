@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Button
 import androidx.compose.material.Text
@@ -30,6 +31,7 @@ import com.example.composeplayground.basics.MyImageAdvance
 import com.example.composeplayground.basics.MyProgressBarAdvance
 import com.example.composeplayground.basics.MyRadioListButtons
 import com.example.composeplayground.basics.MyRangeSlider
+import com.example.composeplayground.basics.MySimpleCustomDialog
 import com.example.composeplayground.basics.MyTextField
 import com.example.composeplayground.basics.getOptions
 import com.example.composeplayground.ui.theme.ComposePlaygroundTheme
@@ -48,11 +50,30 @@ class MainActivity : ComponentActivity() {
             //DropDownMenuPreview()
             //SliderPreview()
             //AlertDialogsPreview()
+            CustomDialogsPreview()
         }
     }
 }
 
+
+
 @Preview(showBackground = true)
+@Composable
+fun CustomDialogsPreview() {
+    val context = LocalContext.current
+    var show by remember { mutableStateOf(false) }
+    Box(
+        Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center,
+    ) {
+        Button(onClick = { show = true }) {
+            Text(text = "Show Toast message")
+        }
+    }
+    MySimpleCustomDialog(show = show, onDismiss = { show = false })
+}
+
+//@Preview(showBackground = true)
 @Composable
 fun AlertDialogsPreview() {
     val context = LocalContext.current

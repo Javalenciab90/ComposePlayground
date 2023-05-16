@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -26,6 +28,7 @@ import com.example.composeplayground.basics.MyBadgeBox
 import com.example.composeplayground.basics.MyCard
 import com.example.composeplayground.basics.MyCheckBoxWithText
 import com.example.composeplayground.basics.MyAlertDialog
+import com.example.composeplayground.basics.MyCustomDialog
 import com.example.composeplayground.basics.MyDropDownMenu
 import com.example.composeplayground.basics.MyImageAdvance
 import com.example.composeplayground.basics.MyProgressBarAdvance
@@ -50,17 +53,32 @@ class MainActivity : ComponentActivity() {
             //DropDownMenuPreview()
             //SliderPreview()
             //AlertDialogsPreview()
+            //CustomSimpleDialogsPreview()
             CustomDialogsPreview()
         }
     }
 }
 
-
-
 @Preview(showBackground = true)
 @Composable
 fun CustomDialogsPreview() {
-    val context = LocalContext.current
+    var show by remember { mutableStateOf(false) }
+    Box(
+        Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center,
+    ) {
+        Button(onClick = { show = true }) {
+            Text(text = "Show Toast message")
+        }
+    }
+    MyCustomDialog(show = show, onDismiss = { show = false })
+
+}
+
+
+//@Preview(showBackground = true)
+@Composable
+fun CustomSimpleDialogsPreview() {
     var show by remember { mutableStateOf(false) }
     Box(
         Modifier.fillMaxSize(),
@@ -166,7 +184,7 @@ fun ProgressBarPreview() {
 @Composable
 fun ButtonsPreview() {
     ComposePlaygroundTheme {
-       MyImageAdvance()
+        MyImageAdvance()
     }
 }
 
@@ -180,7 +198,7 @@ fun TextFieldsPreview() {
         //MyTextFieldAdvance()
         //MyTextFieldOutLined()
 
-        var myText by remember { mutableStateOf("Aris")}
+        var myText by remember { mutableStateOf("Aris") }
         MyTextField(myText) { myText = it }
     }
 }

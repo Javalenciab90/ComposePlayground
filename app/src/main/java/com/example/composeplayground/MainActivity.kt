@@ -28,6 +28,7 @@ import com.example.composeplayground.basics.MyBadgeBox
 import com.example.composeplayground.basics.MyCard
 import com.example.composeplayground.basics.MyCheckBoxWithText
 import com.example.composeplayground.basics.MyAlertDialog
+import com.example.composeplayground.basics.MyConfirmationDialog
 import com.example.composeplayground.basics.MyCustomDialog
 import com.example.composeplayground.basics.MyDropDownMenu
 import com.example.composeplayground.basics.MyImageAdvance
@@ -54,12 +55,28 @@ class MainActivity : ComponentActivity() {
             //SliderPreview()
             //AlertDialogsPreview()
             //CustomSimpleDialogsPreview()
-            CustomDialogsPreview()
+            //CustomDialogsPreview()
+            ConfirmationDialogsPreview()
         }
     }
 }
 
 @Preview(showBackground = true)
+@Composable
+fun ConfirmationDialogsPreview() {
+    var show by remember { mutableStateOf(false) }
+    Box(
+        Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center,
+    ) {
+        Button(onClick = { show = true }) {
+            Text(text = "Show Toast message")
+        }
+    }
+    MyConfirmationDialog(show = show, onDismiss = { show = false })
+}
+
+//@Preview(showBackground = true)
 @Composable
 fun CustomDialogsPreview() {
     var show by remember { mutableStateOf(false) }

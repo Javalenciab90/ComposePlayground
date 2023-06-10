@@ -40,6 +40,7 @@ import com.example.composeplayground.basics.MyTextField
 import com.example.composeplayground.basics.SimpleRecyclerView
 import com.example.composeplayground.basics.SuperHeroView
 import com.example.composeplayground.basics.SuperHeroWithSpecialControlView
+import com.example.composeplayground.basics.SuperHeroWithStickerHeaderView
 import com.example.composeplayground.basics.getOptions
 import com.example.composeplayground.ui.theme.ComposePlaygroundTheme
 
@@ -70,7 +71,8 @@ class MainActivity : ComponentActivity() {
 fun RecyclerViewPreview() {
     //SimpleRecyclerView()
     //SuperHeroView()
-    SuperHeroWithSpecialControlView()
+    //SuperHeroWithSpecialControlView()
+    SuperHeroWithStickerHeaderView()
 }
 
 @Composable

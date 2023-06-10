@@ -37,6 +37,8 @@ import com.example.composeplayground.basics.MyRadioListButtons
 import com.example.composeplayground.basics.MyRangeSlider
 import com.example.composeplayground.basics.MySimpleCustomDialog
 import com.example.composeplayground.basics.MyTextField
+import com.example.composeplayground.basics.SimpleRecyclerView
+import com.example.composeplayground.basics.SuperHeroView
 import com.example.composeplayground.basics.getOptions
 import com.example.composeplayground.ui.theme.ComposePlaygroundTheme
 
@@ -56,12 +58,19 @@ class MainActivity : ComponentActivity() {
             //AlertDialogsPreview()
             //CustomSimpleDialogsPreview()
             //CustomDialogsPreview()
-            ConfirmationDialogsPreview()
+            //ConfirmationDialogsPreview()
+            RecyclerViewPreview()
         }
     }
 }
 
 @Preview(showBackground = true)
+@Composable
+fun RecyclerViewPreview() {
+    //SimpleRecyclerView()
+    SuperHeroView()
+}
+
 @Composable
 fun ConfirmationDialogsPreview() {
     var show by remember { mutableStateOf(false) }

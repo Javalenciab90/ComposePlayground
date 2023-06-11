@@ -43,7 +43,7 @@ fun MyRangeSlider() {
     var currentRange by remember { mutableStateOf(0f..10f) }
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         RangeSlider(
-            values = currentRange,
+            value = currentRange,
             onValueChange = { currentRange = it },
             valueRange = 0f..10f,
             steps = 9

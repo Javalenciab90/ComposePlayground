@@ -1,6 +1,7 @@
 package com.example.composeplayground
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,8 +10,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -24,10 +23,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composeplayground.basics.CheckBoxListCompleted
 import com.example.composeplayground.basics.CheckInfo
+import com.example.composeplayground.basics.MyAlertDialog
 import com.example.composeplayground.basics.MyBadgeBox
 import com.example.composeplayground.basics.MyCard
 import com.example.composeplayground.basics.MyCheckBoxWithText
-import com.example.composeplayground.basics.MyAlertDialog
 import com.example.composeplayground.basics.MyConfirmationDialog
 import com.example.composeplayground.basics.MyCustomDialog
 import com.example.composeplayground.basics.MyDropDownMenu
@@ -37,16 +36,15 @@ import com.example.composeplayground.basics.MyRadioListButtons
 import com.example.composeplayground.basics.MyRangeSlider
 import com.example.composeplayground.basics.MySimpleCustomDialog
 import com.example.composeplayground.basics.MyTextField
-import com.example.composeplayground.basics.SimpleRecyclerView
-import com.example.composeplayground.basics.SuperHeroView
 import com.example.composeplayground.basics.SuperHeroWithSpecialControlView
-import com.example.composeplayground.basics.SuperHeroWithStickerHeaderView
 import com.example.composeplayground.basics.getOptions
 import com.example.composeplayground.ui.theme.ComposePlaygroundTheme
 
 class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+
         setContent {
             //TextFieldsPreview()
             //ButtonsPreview()
@@ -64,6 +62,7 @@ class MainActivity : ComponentActivity() {
             RecyclerViewPreview()
         }
     }
+
 }
 
 @Preview(showBackground = true)
@@ -71,8 +70,7 @@ class MainActivity : ComponentActivity() {
 fun RecyclerViewPreview() {
     //SimpleRecyclerView()
     //SuperHeroView()
-    //SuperHeroWithSpecialControlView()
-    SuperHeroWithStickerHeaderView()
+    SuperHeroWithSpecialControlView()
 }
 
 @Composable
